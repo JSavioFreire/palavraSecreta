@@ -1,32 +1,30 @@
-import { useState } from "react"
-import { Letter } from "../answer/StyleAnswer"
 import { BoxWord,AllBoxWord } from "./StyleWordBox"
 
 const WordBox = ({word,eachLetter,playedLetter}) => {
 
-    
+    const splitWord = word.split('')
+ 
   return (
-    <AllBoxWord>
-        {word.map((Letter)=>{
-           
-            if(eachLetter == Letter ){
+    <AllBoxWord >
+        {splitWord.map((Letter)=>{
+            const PlayedCorrect = (value) => {
+                if (value == Letter) {
+                    return value
+                }}
+    
+            const correct = playedLetter.filter(PlayedCorrect)
+
+            if(eachLetter == Letter || correct == Letter){
                 return(
-                <BoxWord><h1 className="right">{Letter}</h1></BoxWord>
+                <BoxWord><h1>{Letter}</h1></BoxWord>
             )}
           
             else{
                 return(
                     <BoxWord></BoxWord>
                 )
-            }
-        }
-            
-
-            
-            
-        )
-    
-        }
+            }}  
+        )}
         
     </AllBoxWord>
   )

@@ -5,7 +5,7 @@ const Answer = ({setarValue, PushPlayedLetter}) => {
     const [val, setVal] = useState()
 
     const handleChange = (e)=>{
-        setVal(e.target.value)
+        setVal(e.target.value.toUpperCase())
     }
     const handleSubmit = (e)=>{
         e.preventDefault()
