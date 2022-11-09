@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+//React
+import { useState } from "react";
 
-function App() {
+//components
+import Title from "./components/title/title";
+import WordBox from "./components/wordBox/WordBox";
+import Answer from "./components/answer/Answer";
+
+//styled
+import GlobalStyle from "./globalStyled";
+
+
+const App = ()=> {
+
+  //possiveis palavras
+  const [teste] = useState(['S','A','V','I','O'])
+
+  //Valores recebidos no input
+  const [value, setValue] = useState('')
+  const setarValue = (e)=>{setValue(e)}
+ 
+  //Letras jogadas
+  const [playedLetter] = useState([])
+  const PushPlayedLetter = (e)=>{playedLetter.push(e)}
+
+  console.log(playedLetter)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyle/>
+      <Title/>
+      <WordBox word = {teste} eachLetter = {value} playedLetter = {playedLetter}/>
+      <Answer setarValue = {setarValue} PushPlayedLetter = {PushPlayedLetter}/>
+
+    </>
   );
 }
 
