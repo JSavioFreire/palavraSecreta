@@ -16,6 +16,7 @@ export const Letter = styled.input`
     align-items: center;
     margin: 0 4px;
     font-size: 30px;
+    text-align: center;
 `
 export const Submit = styled.button`
     width: 60px;
